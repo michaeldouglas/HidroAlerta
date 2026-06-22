@@ -28,11 +28,13 @@ export function AppBottomNav() {
         return (
           <Pressable
             key={item.path}
-            style={styles.item}
+            style={[styles.item, active && styles.itemActive]}
             onPress={() => router.push(item.path as never)}
             accessibilityRole="button"
             accessibilityLabel={item.label}
+            accessibilityState={{ selected: active }}
           >
+            {active ? <View style={styles.activeIndicator} /> : null}
             <AppIcon
               name={item.icon}
               color={active ? Colors.blueLight : Colors.muted}
@@ -48,25 +50,45 @@ export function AppBottomNav() {
 
 const styles = StyleSheet.create({
   nav: {
-    minHeight: 66,
-    paddingHorizontal: 8,
-    paddingTop: 7,
+    minHeight: 70,
+    marginHorizontal: 10,
+    marginBottom: 8,
+    padding: 6,
     flexDirection: "row",
-    alignItems: "flex-start",
-    backgroundColor: Colors.navySoft,
-    borderTopWidth: 1,
-    borderTopColor: "rgba(156, 199, 223, 0.3)",
+    alignItems: "center",
+    borderRadius: 22,
+    backgroundColor: "rgba(8, 38, 65, 0.97)",
+    borderWidth: 1,
+    borderColor: "rgba(117, 200, 238, 0.2)",
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 14,
   },
   navLandscape: {
-    minHeight: 54,
-    paddingTop: 4,
+    minHeight: 56,
+    marginBottom: 4,
+    padding: 4,
   },
   item: {
     flex: 1,
-    minHeight: 46,
+    minHeight: 54,
     alignItems: "center",
     justifyContent: "center",
     gap: 3,
+    borderRadius: 16,
+  },
+  itemActive: {
+    backgroundColor: "rgba(77, 182, 232, 0.11)",
+  },
+  activeIndicator: {
+    position: "absolute",
+    top: 2,
+    width: 22,
+    height: 3,
+    borderRadius: 2,
+    backgroundColor: Colors.blueLight,
   },
   label: {
     color: Colors.muted,
@@ -75,6 +97,6 @@ const styles = StyleSheet.create({
   },
   labelActive: {
     color: Colors.blueLight,
-    fontWeight: "800",
+    fontWeight: "900",
   },
 });

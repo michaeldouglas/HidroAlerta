@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   page: {
     flexGrow: 1,
     padding: 16,
-    backgroundColor: Colors.navy,
+    backgroundColor: "transparent",
   },
   content: {
     flex: 1,

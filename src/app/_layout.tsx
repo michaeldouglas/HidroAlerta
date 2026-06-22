@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { AppHeader } from "@/shared/components/app-header";
 import { AppBottomNav } from "@/shared/components/app-bottom-nav";
+import { AppBackdrop } from "@/shared/components/app-backdrop";
 import { Colors } from "@/shared/constants/colors";
 import { RefreshIntervalProvider } from "@/shared/contexts/refresh-interval-context";
 import { TankDetailAccessProvider } from "@/shared/contexts/tank-detail-access-context";
@@ -21,6 +22,7 @@ export default function RootLayout() {
         <TankDetailAccessProvider>
           <SettingsProvider>
             <SafeAreaView style={styles.safeArea}>
+              <AppBackdrop />
               <StatusBar barStyle="light-content" />
               {!hasOwnHeader && <AppHeader />}
               <View style={styles.content}>
@@ -29,7 +31,7 @@ export default function RootLayout() {
                     headerShown: false,
                     animation: "fade_from_bottom",
                     animationDuration: 260,
-                    contentStyle: { backgroundColor: Colors.navy },
+                    contentStyle: { backgroundColor: "transparent" },
                   }}
                 />
               </View>

@@ -38,7 +38,7 @@ export function SettingsShell({ title, description, children }: SettingsShellPro
 }
 
 const styles = StyleSheet.create({
-  page: { flexGrow: 1, padding: 16, backgroundColor: Colors.navy },
+  page: { flexGrow: 1, padding: 16, backgroundColor: "transparent" },
   content: { flex: 1, width: "100%", maxWidth: 720, alignSelf: "center" },
   header: { minHeight: 50, flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
   backButton: { width: 44, height: 44, alignItems: "center", justifyContent: "center", borderRadius: 13, backgroundColor: Colors.navySoft },

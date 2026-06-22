@@ -81,14 +81,23 @@ function MetricCard({
       style={styles.metricCardAnimation}
     >
       <Pressable
-        style={({ pressed }) => [styles.metricCard, pressed && onPress && styles.metricCardPressed]}
+        style={({ pressed }) => [
+          styles.metricCard,
+          { borderColor: `${iconColor}38` },
+          pressed && onPress && styles.metricCardPressed,
+        ]}
         onPress={onPress}
         disabled={!onPress}
         accessibilityRole={onPress ? "button" : undefined}
       >
       <Text style={styles.metricLabel}>{label}</Text>
       <View style={styles.metricBody}>
-        <View style={styles.metricIcon}>
+        <View
+          style={[
+            styles.metricIcon,
+            { backgroundColor: `${iconColor}14`, borderColor: `${iconColor}2E` },
+          ]}
+        >
           <AppIcon name={icon} color={iconColor} size={44} />
         </View>
         <View style={styles.metricValueArea}>
@@ -362,7 +371,7 @@ const styles = StyleSheet.create({
   page: {
     flexGrow: 1,
     padding: 16,
-    backgroundColor: Colors.navy,
+    backgroundColor: "transparent",
   },
   pageLandscape: {
     paddingHorizontal: 28,
@@ -391,6 +400,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#096536",
     borderWidth: 1,
     borderColor: "rgba(72, 224, 127, 0.25)",
+    shadowColor: "#032316",
+    shadowOpacity: 0.38,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 9 },
+    elevation: 9,
   },
   qualityCardAnimation: {
     minHeight: 190,
@@ -508,7 +522,12 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: "#0A315A",
     borderWidth: 1,
-    borderColor: "rgba(77, 182, 232, 0.12)",
+    borderColor: "rgba(77, 182, 232, 0.2)",
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 5,
   },
   metricCardAnimation: {
     flex: 1,
@@ -522,6 +541,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "700",
     textAlign: "center",
+    letterSpacing: 0.5,
   },
   metricBody: {
     flex: 1,
@@ -531,10 +551,12 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   metricIcon: {
-    width: 52,
-    height: 48,
+    width: 58,
+    height: 58,
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 19,
+    borderWidth: 1,
   },
   metricValueArea: {
     alignItems: "center",

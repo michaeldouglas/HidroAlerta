@@ -166,10 +166,13 @@ function AlertCard({
             <Text style={styles.dateText}>{item.time}</Text>
           </View>
         </View>
-        <AskAssistantButton
-          label="Entender este alerta"
-          prompt={`Explique este alerta do HidroAlerta: “${item.title}”. Detalhes: ${item.description} Ocorrido em ${item.date} às ${item.time}, classificação ${item.severity}. Explique possíveis causas e o que devo verificar.`}
-        />
+        <View style={styles.assistantAction}>
+          <AskAssistantButton
+            label="Entender este alerta"
+            compact
+            prompt={`Explique este alerta do HidroAlerta: “${item.title}”. Detalhes: ${item.description} Ocorrido em ${item.date} às ${item.time}, classificação ${item.severity}. Explique possíveis causas e o que devo verificar.`}
+          />
+        </View>
         <Pressable
           style={[styles.readButton, read && styles.readButtonDone]}
           onPress={onMarkRead}
@@ -356,7 +359,7 @@ const styles = StyleSheet.create({
   page: {
     flexGrow: 1,
     padding: 16,
-    backgroundColor: Colors.navy,
+    backgroundColor: "transparent",
   },
   pageLandscape: {
     paddingHorizontal: 32,
@@ -564,6 +567,10 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: 12,
     fontWeight: "800",
+  },
+  assistantAction: {
+    width: "100%",
+    marginTop: 12,
   },
   readButton: {
     width: "100%",

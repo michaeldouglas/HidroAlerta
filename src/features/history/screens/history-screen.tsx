@@ -429,7 +429,7 @@ const styles = StyleSheet.create({
   page: {
     flexGrow: 1,
     padding: 16,
-    backgroundColor: Colors.navy,
+    backgroundColor: "transparent",
   },
   pageLandscape: {
     paddingHorizontal: 32,

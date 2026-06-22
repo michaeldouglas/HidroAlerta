@@ -458,7 +458,7 @@ export default function AssistantScreen() {
 }
 
 const styles = StyleSheet.create({
-  page: { flex: 1, paddingHorizontal: 14, paddingTop: 10, paddingBottom: 8, backgroundColor: Colors.navy },
+  page: { flex: 1, paddingHorizontal: 14, paddingTop: 10, paddingBottom: 8, backgroundColor: "transparent" },
   refreshCard: { minHeight: 66, paddingHorizontal: 11, flexDirection: "row", alignItems: "center", gap: 10, borderRadius: 17, backgroundColor: "#092A49", borderWidth: 1, borderColor: "rgba(77, 182, 232, 0.22)" },
   refreshIcon: { width: 40, height: 40, alignItems: "center", justifyContent: "center", borderRadius: 13, backgroundColor: "rgba(77, 182, 232, 0.12)" },
   refreshInfo: { flex: 1 },

@@ -1,6 +1,22 @@
 # HidroAlerta
 
+<p align="center">
+  <img src="./assets/images/icon.png" alt="Ícone do HidroAlerta com o HydroBot" width="180" />
+</p>
+
 Aplicativo multiplataforma para monitoramento inteligente da qualidade e da disponibilidade da água. O projeto reúne leituras de sensores, histórico, alertas, relatórios em PDF e uma interface conversacional para ajudar o usuário a interpretar os dados.
+
+## Demonstração
+
+<p align="center">
+  <a href="https://youtube.com/shorts/O8FO1x_f_1o?si=oVJuqZGu4Xcilt1d" title="Assistir à demonstração do HidroAlerta no YouTube">
+    <img src="https://img.youtube.com/vi/O8FO1x_f_1o/maxresdefault.jpg" alt="Demonstração em vídeo do aplicativo HidroAlerta" width="640" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://youtube.com/shorts/O8FO1x_f_1o?si=oVJuqZGu4Xcilt1d"><strong>▶ Assistir à demonstração no YouTube</strong></a>
+</p>
 
 ## Recursos
 
