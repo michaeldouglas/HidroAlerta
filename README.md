@@ -1,56 +1,172 @@
-# Welcome to your Expo app 👋
+# HidroAlerta
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo multiplataforma para monitoramento inteligente da qualidade e da disponibilidade da água. O projeto reúne leituras de sensores, histórico, alertas, relatórios em PDF e uma interface conversacional para ajudar o usuário a interpretar os dados.
 
-## Get started
+## Recursos
 
-1. Install dependencies
+- Painel com qualidade geral, nível da caixa, pH, turbidez e temperatura.
+- Telas detalhadas com faixa recomendada, status e informações contextuais.
+- Histórico por indicador, períodos selecionáveis e estatísticas de mínimo, média e máximo.
+- Relatórios em PDF com compartilhamento no Android/iOS e impressão no navegador.
+- Alertas filtráveis, histórico de ocorrências e marcação de leitura.
+- HidroIA com chat animado, perguntas sugeridas e atalhos contextuais em todo o app.
+- Gravação, envio e reprodução de mensagens de voz.
+- Configurações de unidades, notificações, usuários, rede, backup e dados.
+- Estado real da conexão atual com tipo de rede e endereço IP.
+- Interface responsiva para Android, iOS e web.
 
-   ```bash
-   npm install
-   ```
+> [!IMPORTANT]
+> As leituras atuais e as respostas da HidroIA são dados demonstrativos locais. Uma IA real, transcrição de voz e dados de sensores em produção exigem integração com um backend. Nunca coloque chaves privadas de API diretamente no aplicativo.
 
-2. Start the app
+## Tecnologias
 
-   ```bash
-   npx expo start
-   ```
+- Expo SDK 56
+- React 19 e React Native 0.85
+- Expo Router
+- TypeScript em modo estrito
+- React Native Reanimated
+- React Native SVG
+- Expo Audio, Network, Print, Sharing e File System
+- Expo Symbols
 
-In the output, you'll find options to open the app in a
+## Pré-requisitos
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Node.js compatível com o Expo SDK 56
+- npm
+- Expo Go para testes rápidos
+- Android Studio para emulador ou build nativo Android
+- macOS com Xcode para build nativo iOS, ou EAS Build
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Instalação
 
 ```bash
-npm run reset-project
+npm install
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Atalhos disponíveis no terminal do Expo permitem abrir Android, iOS ou web. Também é possível executar diretamente:
 
-### Other setup steps
+```bash
+npm run android
+npm run ios
+npm run web
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Para reiniciar o Metro removendo o cache:
 
-## Learn more
+```bash
+npm run start:clear
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Expo Go e builds nativos
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+O Expo Go é suficiente para validar grande parte da interface, áudio e navegação. Entretanto, desde o SDK 52 ele não reproduz fielmente o ícone e o splash screen configurados pelo aplicativo.
 
-## Join the community
+Para testar a experiência nativa real no Android:
 
-Join our community of developers creating universal apps.
+```bash
+npx expo run:android
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Depois de alterar ícone, splash ou plugins nativos, reconstrua e reinstale o aplicativo. Em alguns aparelhos também é necessário desinstalar a versão anterior para limpar o ícone armazenado pelo launcher.
+
+## Comandos
+
+| Comando | Finalidade |
+| --- | --- |
+| `npm start` | Inicia o Metro Bundler |
+| `npm run start:clear` | Inicia o Metro limpando o cache |
+| `npm run android` | Abre o projeto no Android |
+| `npm run ios` | Abre o projeto no iOS |
+| `npm run web` | Abre a versão web |
+| `npm run lint` | Executa o ESLint recomendado pelo Expo |
+| `npm run typecheck` | Valida o TypeScript sem gerar arquivos |
+| `npm run check` | Executa lint e TypeScript |
+| `npm run generate:brand` | Regenera ícones e splash a partir do HydroBot SVG |
+
+## Organização do projeto
+
+```text
+src/
+├── app/                         # Rotas finas do Expo Router
+├── features/
+│   ├── about/                   # Informações institucionais
+│   ├── alerts/                  # Alertas e histórico de ocorrências
+│   ├── assistant/               # HidroIA, áudio e ações contextuais
+│   ├── history/                 # Gráficos, períodos e PDF
+│   ├── home/                    # Painel principal
+│   ├── monitoring/              # Nível, pH, turbidez e temperatura
+│   └── settings/                # Configurações e preferências
+└── shared/
+    ├── components/              # Navegação, ícones e HydroBot
+    ├── constants/               # Cores compartilhadas
+    ├── contexts/                # Atualização e acesso às telas
+    └── hooks/                   # Hooks reutilizáveis
+
+assets/
+├── branding/hydrobot.svg        # Fonte vetorial da identidade
+└── images/                      # Assets gerados para as plataformas
+```
+
+As rotas em `src/app` devem permanecer pequenas. A implementação de cada tela pertence ao domínio correspondente dentro de `src/features`.
+
+## HidroIA
+
+A HidroIA pode ser aberta pela navegação inferior ou por botões contextuais presentes em:
+
+- qualidade da água;
+- nível da caixa;
+- pH, turbidez e temperatura;
+- histórico;
+- alertas.
+
+Esses botões enviam automaticamente ao chat uma pergunta com o contexto da tela. Atualmente as respostas são produzidas localmente com regras demonstrativas.
+
+Para uma integração real, use um backend para:
+
+1. receber a pergunta e o contexto das leituras;
+2. autenticar com o provedor de IA sem expor chaves no app;
+3. consultar dados dos sensores e histórico;
+4. retornar a resposta ao aplicativo;
+5. opcionalmente transcrever mensagens de voz antes de enviá-las ao agente.
+
+## Áudio
+
+O aplicativo solicita permissão de microfone apenas quando o usuário inicia uma gravação. As mensagens são armazenadas na área de documentos do app e podem ser reproduzidas no chat.
+
+No Android Emulator, confirme o volume de mídia e habilite o uso do microfone do computador. Para validar captura e reprodução com fidelidade, prefira um aparelho físico.
+
+## Relatórios PDF
+
+- Android/iOS: o PDF é salvo no cache autorizado do aplicativo e aberto na folha de compartilhamento.
+- Web: o relatório é aberto em uma janela de impressão; escolha **Salvar como PDF**.
+- O navegador precisa permitir a abertura da janela do relatório.
+
+## Rede
+
+O módulo `expo-network` informa tipo de conexão, disponibilidade de internet e endereço IP. Por restrições dos sistemas operacionais, o app não lista redes próximas nem exibe o nome/SSID da rede usando apenas a API padrão do Expo.
+
+## Identidade visual
+
+O ícone e o splash são gerados a partir de `assets/branding/hydrobot.svg`.
+
+Após editar o SVG, execute:
+
+```bash
+npm run generate:brand
+```
+
+O comando atualiza o ícone principal, foreground adaptativo do Android, ícone monocromático, favicon e splash.
+
+## Validação
+
+Antes de entregar alterações:
+
+```bash
+npm run check
+npx expo export --platform all
+```
+
+## Aviso sobre qualidade da água
+
+O HidroAlerta auxilia no acompanhamento de indicadores físicos e químicos, mas não substitui análises laboratoriais ou microbiológicas. A classificação apresentada no aplicativo não deve ser usada isoladamente como certificação de potabilidade.

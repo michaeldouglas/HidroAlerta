@@ -3,18 +3,18 @@
     "name": "HidroAlerta",
     "slug": "HidroAlerta",
     "version": "1.0.0",
+    "description": "Monitoramento inteligente da qualidade e disponibilidade da água.",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "hidroalerta",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/icon.png"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#061A2F",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false
@@ -28,13 +28,35 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#061A2F",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain",
+          "dark": {
+            "backgroundColor": "#061A2F",
+            "image": "./assets/images/splash-icon.png"
+          },
           "android": {
             "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
+            "imageWidth": 180,
+            "backgroundColor": "#061A2F"
+          },
+          "ios": {
+            "image": "./assets/images/splash-icon.png",
+            "imageWidth": 180,
+            "backgroundColor": "#061A2F"
           }
         }
-      ]
+      ],
+      "expo-sharing",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Permita que o HidroAlerta acesse o microfone para enviar mensagens de voz.",
+          "enableBackgroundRecording": false
+        }
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true,
