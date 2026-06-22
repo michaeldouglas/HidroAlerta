@@ -3,7 +3,7 @@ import Svg, { Circle, Defs, Path, RadialGradient, Stop } from "react-native-svg"
 
 export function AppBackdrop() {
   return (
-    <View pointerEvents="none" style={styles.root}>
+    <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.root]}>
       <Svg width="100%" height="100%" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid slice">
         <Defs>
           <RadialGradient id="topGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(330 90) rotate(120) scale(290 250)">
@@ -26,7 +26,6 @@ export function AppBackdrop() {
 
 const styles = StyleSheet.create({
   root: {
-    ...StyleSheet.absoluteFill,
     overflow: "hidden",
   },
 });
