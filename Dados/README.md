@@ -6,7 +6,7 @@ O objetivo desta etapa foi caracterizar experimentalmente o comportamento do sen
 
 ## Sensor utilizado
 
-![Sensor de turbidez usado nos experimentos](./sensor.png)
+<img src="./sensor.png" alt="Sensor de turbidez usado nos experimentos" width="50%" style="border-radius: 12px;">
 
 ## Documentação
 
