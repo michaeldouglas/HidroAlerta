@@ -68,6 +68,8 @@ Analise_De_dados/*.html
 Analise_De_dados/*.pdf
 Analise_De_dados/figuras/
 Analise_De_dados/outputs/
+.matplotlib_cache/
+Analise_Dos_Dados/.matplotlib_cache/
 
 # Logs e temporarios
 *.log

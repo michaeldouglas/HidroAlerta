@@ -1,0 +1,40 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Variaveis de ambiente e segredos locais
+.env
+.env.*
+!.env.example
+
+# Saidas geradas pela analise
+outputs/
+figuras/
+*.csv
+*.html
+*.pdf
+*.png
+*.jpg
+*.jpeg
+
+# Logs e temporarios
+*.log
+tmp/
+temp/
+
