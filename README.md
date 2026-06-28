@@ -55,7 +55,10 @@ Aplicativo multiplataforma para monitoramento inteligente da qualidade e da disp
 
 ## Instalação
 
+O aplicativo Expo está dentro da pasta `Aplicativo_Celular`. Rode os comandos do app a partir dela:
+
 ```bash
+cd Aplicativo_Celular
 npm install
 npm start
 ```
@@ -78,7 +81,7 @@ npm run start:clear
 
 O Expo Go é suficiente para validar grande parte da interface, áudio e navegação. Entretanto, desde o SDK 52 ele não reproduz fielmente o ícone e o splash screen configurados pelo aplicativo.
 
-Para testar a experiência nativa real no Android:
+Para testar a experiência nativa real no Android, execute dentro de `Aplicativo_Celular`:
 
 ```bash
 npx expo run:android
@@ -87,6 +90,8 @@ npx expo run:android
 Depois de alterar ícone, splash ou plugins nativos, reconstrua e reinstale o aplicativo. Em alguns aparelhos também é necessário desinstalar a versão anterior para limpar o ícone armazenado pelo launcher.
 
 ## Comandos
+
+Execute os comandos abaixo dentro de `Aplicativo_Celular`:
 
 | Comando                  | Finalidade                                        |
 | ------------------------ | ------------------------------------------------- |
@@ -103,28 +108,33 @@ Depois de alterar ícone, splash ou plugins nativos, reconstrua e reinstale o ap
 ## Organização do projeto
 
 ```text
-src/
-├── app/                         # Rotas finas do Expo Router
-├── features/
-│   ├── about/                   # Informações institucionais
-│   ├── alerts/                  # Alertas e histórico de ocorrências
-│   ├── assistant/               # HidroIA, áudio e ações contextuais
-│   ├── history/                 # Gráficos, períodos e PDF
-│   ├── home/                    # Painel principal
-│   ├── monitoring/              # Nível, pH, turbidez e temperatura
-│   └── settings/                # Configurações e preferências
-└── shared/
-    ├── components/              # Navegação, ícones e HydroBot
-    ├── constants/               # Cores compartilhadas
-    ├── contexts/                # Atualização e acesso às telas
-    └── hooks/                   # Hooks reutilizáveis
-
-assets/
-├── branding/hydrobot.svg        # Fonte vetorial da identidade
-└── images/                      # Assets gerados para as plataformas
+.
+├── Aplicativo_Celular/          # Projeto Expo/React Native
+│   ├── src/
+│   │   ├── app/                 # Rotas finas do Expo Router
+│   │   ├── features/
+│   │   │   ├── about/           # Informações institucionais
+│   │   │   ├── alerts/          # Alertas e histórico de ocorrências
+│   │   │   ├── assistant/       # HidroIA, áudio e ações contextuais
+│   │   │   ├── history/         # Gráficos, períodos e PDF
+│   │   │   ├── home/            # Painel principal
+│   │   │   ├── monitoring/      # Nível, pH, turbidez e temperatura
+│   │   │   └── settings/        # Configurações e preferências
+│   │   └── shared/
+│   │       ├── components/      # Navegação, ícones e HydroBot
+│   │       ├── constants/       # Cores compartilhadas
+│   │       ├── contexts/        # Atualização e acesso às telas
+│   │       └── hooks/           # Hooks reutilizáveis
+│   ├── assets/
+│   │   ├── branding/            # Fonte vetorial da identidade
+│   │   └── images/              # Assets gerados para as plataformas
+│   ├── scripts/                 # Scripts de apoio do app
+│   ├── app.json                 # Configuração Expo
+│   └── package.json             # Scripts e dependências do app
+└── Dados/                       # Arquivos CSV e bases de dados do projeto
 ```
 
-As rotas em `src/app` devem permanecer pequenas. A implementação de cada tela pertence ao domínio correspondente dentro de `src/features`.
+As rotas em `Aplicativo_Celular/src/app` devem permanecer pequenas. A implementação de cada tela pertence ao domínio correspondente dentro de `Aplicativo_Celular/src/features`.
 
 ## HidroIA
 
@@ -164,9 +174,9 @@ O módulo `expo-network` informa tipo de conexão, disponibilidade de internet e
 
 ## Identidade visual
 
-O ícone e o splash são gerados a partir de `assets/branding/hydrobot.svg`.
+O ícone e o splash são gerados a partir de `Aplicativo_Celular/assets/branding/hydrobot.svg`.
 
-Após editar o SVG, execute:
+Após editar o SVG, execute dentro de `Aplicativo_Celular`:
 
 ```bash
 npm run generate:brand
@@ -176,7 +186,7 @@ O comando atualiza o ícone principal, foreground adaptativo do Android, ícone 
 
 ## Validação
 
-Antes de entregar alterações:
+Antes de entregar alterações no app, execute dentro de `Aplicativo_Celular`:
 
 ```bash
 npm run check
