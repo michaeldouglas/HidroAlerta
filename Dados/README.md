@@ -4,6 +4,10 @@ Esta pasta reúne os arquivos CSV usados nos testes experimentais de turbidez do
 
 O objetivo desta etapa foi caracterizar experimentalmente o comportamento do sensor sob diferentes concentrações relativas de partículas suspensas. Os dados ainda não representam valores calibrados em NTU.
 
+## Sensor utilizado
+
+![Sensor de turbidez usado nos experimentos](./sensor.png)
+
 ## Documentação
 
 - [METODOLOGIA.md](./METODOLOGIA.md): explica o princípio físico da medição, o delineamento experimental, as variáveis, a repetibilidade e as limitações.
@@ -17,6 +21,7 @@ Dados/
 ├── 1_2_colher_de_cha/      # Água com 1/2 colher de chá de terra
 ├── 1_colher_de_cha/        # Água com 1 colher de chá de terra
 ├── 2_colheres_de_cha/      # Água com 2 colheres de chá de terra
+├── sensor.png              # Imagem do sensor usado nos experimentos
 ├── README.md               # Visão geral dos dados
 ├── METODOLOGIA.md          # Explicação técnica e experimental
 └── CODIGO_COLETA.md        # Código usado no ESP32
