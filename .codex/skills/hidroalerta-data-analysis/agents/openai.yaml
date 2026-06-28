@@ -1,0 +1,4 @@
+interface:
+  display_name: "Análise de Dados HidroAlerta"
+  short_description: "Analise dados CSV de turbidez do HidroAlerta"
+  default_prompt: "Use $hidroalerta-data-analysis para analisar os CSVs de turbidez do HidroAlerta em um notebook Jupyter."

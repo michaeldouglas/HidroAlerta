@@ -1,0 +1,75 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Variaveis de ambiente e segredos locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+
+# Node / Expo / React Native
+node_modules/
+.expo/
+.expo-shared/
+dist/
+web-build/
+.metro-health-check*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.tsbuildinfo
+
+# Builds nativos gerados
+ios/
+android/
+.kotlin/
+*.orig.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+Analise_De_dados/.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Saidas geradas pela analise
+Dados/turbidez_normalizado.csv
+Dados/*_normalizado.csv
+Dados/*_resumo.csv
+Analise_De_dados/*.csv
+Analise_De_dados/*.html
+Analise_De_dados/*.pdf
+Analise_De_dados/figuras/
+Analise_De_dados/outputs/
+
+# Logs e temporarios
+*.log
+tmp/
+temp/
