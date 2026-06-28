@@ -1,7 +1,7 @@
 # HidroAlerta
 
 <p align="center">
-  <img src="./assets/images/icon.png" alt="Ícone do HidroAlerta com o HydroBot" width="180" />
+  <img src="./Aplicativo_Celular/assets/images/icon.png" alt="Ícone do HidroAlerta com o HydroBot" width="180" />
 </p>
 
 Aplicativo multiplataforma para monitoramento inteligente da qualidade e da disponibilidade da água. O projeto reúne leituras de sensores, histórico, alertas, relatórios em PDF e uma interface conversacional para ajudar o usuário a interpretar os dados.
@@ -88,16 +88,16 @@ Depois de alterar ícone, splash ou plugins nativos, reconstrua e reinstale o ap
 
 ## Comandos
 
-| Comando | Finalidade |
-| --- | --- |
-| `npm start` | Inicia o Metro Bundler |
-| `npm run start:clear` | Inicia o Metro limpando o cache |
-| `npm run android` | Abre o projeto no Android |
-| `npm run ios` | Abre o projeto no iOS |
-| `npm run web` | Abre a versão web |
-| `npm run lint` | Executa o ESLint recomendado pelo Expo |
-| `npm run typecheck` | Valida o TypeScript sem gerar arquivos |
-| `npm run check` | Executa lint e TypeScript |
+| Comando                  | Finalidade                                        |
+| ------------------------ | ------------------------------------------------- |
+| `npm start`              | Inicia o Metro Bundler                            |
+| `npm run start:clear`    | Inicia o Metro limpando o cache                   |
+| `npm run android`        | Abre o projeto no Android                         |
+| `npm run ios`            | Abre o projeto no iOS                             |
+| `npm run web`            | Abre a versão web                                 |
+| `npm run lint`           | Executa o ESLint recomendado pelo Expo            |
+| `npm run typecheck`      | Valida o TypeScript sem gerar arquivos            |
+| `npm run check`          | Executa lint e TypeScript                         |
 | `npm run generate:brand` | Regenera ícones e splash a partir do HydroBot SVG |
 
 ## Organização do projeto
