@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HidroAlerta | Simulador</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="simulator-shell">
+      <section class="world-panel" aria-label="Simulador HidroAlerta">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">HidroAlerta</p>
+            <h1>Simulador de caixa d'água monitorada</h1>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" id="resetView" type="button" title="Voltar para a visão geral" aria-label="Voltar para a visão geral">⌂</button>
+            <button class="primary-button" id="playPause" type="button">Pausar dados</button>
+          </div>
+        </header>
+
+        <div class="scene" id="scene" data-focus="overview">
+          <div class="sky"></div>
+          <div class="distant-hills"></div>
+          <div class="ground"></div>
+
+          <button class="hotspot tank-hotspot" id="focusTank" type="button" aria-label="Aproximar caixa d'água">
+            <span>Ver caixa</span>
+          </button>
+          <button class="hotspot house-hotspot" id="enterHouse" type="button" aria-label="Entrar na casa">
+            <span>Entrar</span>
+          </button>
+
+          <section class="tank-zone" aria-label="Caixa d'água">
+            <div class="tower">
+              <div class="platform"></div>
+              <div class="leg left"></div>
+              <div class="leg right"></div>
+              <div class="leg back-left"></div>
+              <div class="leg back-right"></div>
+              <div class="brace one"></div>
+              <div class="brace two"></div>
+              <div class="brace three"></div>
+            </div>
+            <div class="tank" id="tank">
+              <div class="tank-top-ribs">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="tank-lid"></div>
+              <div class="tank-rim"></div>
+              <div class="tank-rib rib-one"></div>
+              <div class="tank-rib rib-two"></div>
+              <div class="tank-rib rib-three"></div>
+              <div class="water" id="water">
+                <div class="water-surface"></div>
+                <div class="particles" id="particles"></div>
+              </div>
+              <div class="tank-outlet"></div>
+              <div class="tank-glass"></div>
+              <div class="tank-label">caixa d'água</div>
+            </div>
+            <div class="sensor-callout" id="sensorProbe">
+              <img class="sensor-photo" src="../Dados/sensor.png" alt="Sensor real de turbidez usado no projeto">
+              <div class="sensor-copy">
+                <strong>Sensor de turbidez</strong>
+                <span>Instalado dentro da caixa d'água</span>
+              </div>
+              <div class="sensor-arrow"></div>
+            </div>
+          </section>
+
+          <svg class="plumbing-svg" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="pipeMetal" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#d7e1e7"></stop>
+                <stop offset="42%" stop-color="#758894"></stop>
+                <stop offset="100%" stop-color="#2f3b44"></stop>
+              </linearGradient>
+              <linearGradient id="pipeHighlight" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="rgba(255,255,255,0)"></stop>
+                <stop offset="50%" stop-color="rgba(255,255,255,0.62)"></stop>
+                <stop offset="100%" stop-color="rgba(255,255,255,0)"></stop>
+              </linearGradient>
+            </defs>
+            <path class="pipe-shadow-path" d="M 354 158 H 382 V 466 H 852"></path>
+            <path class="pipe-body-path" d="M 354 158 H 382 V 466 H 852"></path>
+            <path class="pipe-light-path" d="M 354 152 H 382 V 460 H 852"></path>
+            <path class="pipe-flow-path" d="M 354 158 H 382 V 466 H 852"></path>
+            <circle class="pipe-coupler" cx="354" cy="158" r="11"></circle>
+            <circle class="pipe-coupler" cx="382" cy="466" r="11"></circle>
+            <circle class="pipe-coupler pipe-house-entry" cx="852" cy="466" r="11"></circle>
+            <g class="pipe-valve-svg" transform="translate(430 466)">
+              <circle r="22"></circle>
+              <rect x="-17" y="-4" width="34" height="8" rx="4"></rect>
+            </g>
+          </svg>
+
+          <section class="house-zone" id="house" aria-label="Casa">
+            <div class="house-shadow"></div>
+            <div class="roof"></div>
+            <div class="roof-cap"></div>
+            <div class="house-body">
+              <div class="wall-light"></div>
+              <div class="window left-window"><span></span></div>
+              <div class="window right-window"><span></span></div>
+              <div class="door"></div>
+              <div class="meter-box">
+                <span></span>
+              </div>
+              <div class="faucet" id="faucet">
+                <div class="tap"></div>
+                <div class="sink"></div>
+                <div class="water-stream" id="waterStream"></div>
+              </div>
+              <div class="interior-panel">
+                <p>Cozinha</p>
+                <button id="toggleFaucet" type="button">Abrir torneira</button>
+              </div>
+            </div>
+            <div class="foundation"></div>
+          </section>
+
+        </div>
+
+        <footer class="controls">
+          <label>
+            Amostra
+            <select id="sampleSelect">
+              <option value="agua_limpa">Água limpa</option>
+              <option value="agua_pouca_terra">Pouca terra</option>
+              <option value="agua_media_terra">Média terra</option>
+              <option value="agua_alta_terra">Alta terra</option>
+            </select>
+          </label>
+          <label>
+            Teste
+            <select id="testSelect">
+              <option value="1">Teste 1</option>
+              <option value="2">Teste 2</option>
+            </select>
+          </label>
+          <label>
+            Velocidade
+            <input id="speedRange" type="range" min="250" max="1800" step="50" value="850">
+          </label>
+        </footer>
+      </section>
+
+      <aside class="telemetry-panel" aria-label="Dados do sensor">
+        <div class="panel-section status-section">
+          <p class="eyebrow">Telemetria ao vivo</p>
+          <h2 id="conditionName">Água limpa</h2>
+          <span class="quality-badge" id="qualityBadge">Limpa</span>
+        </div>
+
+        <div class="sensor-card">
+          <img src="../Dados/sensor.png" alt="Sensor de turbidez usado no projeto">
+          <div>
+            <strong>Sensor de turbidez</strong>
+            <span>AO/OUT → GPIO34 / ADC1</span>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <article>
+            <span>Leitura</span>
+            <strong id="readingValue">-</strong>
+          </article>
+          <article>
+            <span>Tempo</span>
+            <strong id="timeValue">-</strong>
+          </article>
+          <article>
+            <span>ADC médio</span>
+            <strong id="adcValue">-</strong>
+          </article>
+          <article>
+            <span>Tensão</span>
+            <strong id="voltageValue">-</strong>
+          </article>
+          <article>
+            <span>ADC min/max</span>
+            <strong id="minMaxValue">-</strong>
+          </article>
+          <article>
+            <span>Amplitude</span>
+            <strong id="amplitudeValue">-</strong>
+          </article>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <strong>Sinal do ADC</strong>
+            <span id="fileName">carregando CSV...</span>
+          </div>
+          <canvas id="signalChart" width="520" height="180" aria-label="Gráfico do ADC em tempo real"></canvas>
+        </div>
+
+        <div class="event-log" id="eventLog" aria-label="Eventos da simulação">
+          <p>Simulador iniciado. Aguardando dados do sensor...</p>
+        </div>
+      </aside>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
