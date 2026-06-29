@@ -1,0 +1,14 @@
+{
+  "turbidez": {
+    "descricao": "São dados que representam a turbidez da água coletados por um sensor conectado a um ESP32. A turbidez é uma medida da clareza da água, indicando a presença de partículas suspensas que podem afetar sua qualidade.",
+    "schema": {
+      "leitura": "int64",
+      "tempo_ms": "int64",
+      "amostra": "string",
+      "adc_medio": "int64",
+      "adc_menor": "int64",
+      "adc_maior": "int64",
+      "tensao_media_v": "float64"
+    }
+  }
+}
